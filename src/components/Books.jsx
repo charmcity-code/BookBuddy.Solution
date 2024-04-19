@@ -1,1 +1,77 @@
 /* TODO - add your code to create a functional React component that displays all of the available books in the library's catalog. Fetch the book data from the provided API. Users should be able to click on an individual book to navigate to the SingleBook component and view its details. */
+
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { fetchAllBooks } from "../api";
+
+const Books = () => {
+  const [books, setBooks] = useState([]);
+  const [searchParam, setSearchParam] = useState("");
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    async function fetchBooks() {
+      try {
+        const APIResponse = await fetchAllBooks();
+        setBooks(APIResponse.books);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchBooks();
+  }, []);
+
+  const booksToDisplay = searchParam
+    ? books.filter((book) => book.title.toLowerCase().includes(searchParam))
+    : books;
+
+  return (
+    <>
+      <div>
+        <div>
+          <label>
+            Search:{" "}
+            <input
+              type="text"
+              placeholder="search"
+              onChange={(e) => setSearchParam(e.target.value.toLowerCase())}
+            />
+          </label>
+        </div>
+
+        {booksToDisplay.map((book) => {
+          return (
+            <div
+              style={{
+                backgroundColor: "#D9DADE",
+                margin: "10px",
+                padding: "10px",
+              }}
+              key={book.id}
+            >
+              <h3>{book.title}</h3>
+              <p>{book.author}</p>
+              <p>{book.description}</p>
+              <img
+                style={{ height: "250px" }}
+                src={book.coverimage}
+                alt={`${book.title} image`}
+              />
+              <br />
+              <button
+                onClick={() => {
+                  navigate(`books/${book.id}`);
+                }}
+              >
+                Details
+              </button>
+            </div>
+          );
+        })}
+      </div>
+    </>
+  );
+};
+
+export default Books;
