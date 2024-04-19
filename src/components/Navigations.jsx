@@ -7,25 +7,28 @@ const Navigations = ({ token }) => {
     <nav
       style={{
         display: "flex",
+        alignItems: "center",
         gap: "8px",
-        backgroundColor: "#FF79C6",
-        padding: "5px",
+        backgroundColor: "#eb5e28",
+        padding: "10px",
+        height: "30px",
+        fontSize: "large",
       }}
     >
-      <Link style={{ textDecoration: "none", color: "#282A36" }} to="/">
+      <Link style={{ textDecoration: "none", color: "#252422" }} to="/">
         Home
       </Link>
 
       {token ? (
         <>
           <Link
-            style={{ textDecoration: "none", color: "#282A36" }}
+            style={{ textDecoration: "none", color: "#252422" }}
             to="/account"
           >
             Account
           </Link>
           <Link
-            style={{ textDecoration: "none", color: "#282A36" }}
+            style={{ textDecoration: "none", color: "#252422" }}
             to="/logout"
           >
             Logout
@@ -34,13 +37,13 @@ const Navigations = ({ token }) => {
       ) : (
         <>
           <Link
-            style={{ textDecoration: "none", color: "#282A36" }}
+            style={{ textDecoration: "none", color: "#252422" }}
             to="/login"
           >
             Login
           </Link>
           <Link
-            style={{ textDecoration: "none", color: "#282A36" }}
+            style={{ textDecoration: "none", color: "#252422" }}
             to="/register"
           >
             Register

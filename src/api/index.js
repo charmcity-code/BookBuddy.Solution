@@ -86,7 +86,6 @@ export async function checkoutBook(id, token) {
         available: false,
       }),
     });
-
     const result = await response.json();
     return result;
   } catch (error) {
@@ -102,7 +101,6 @@ export async function getReservations(token) {
         Authorization: `Bearer ${token}`,
       },
     });
-
     const result = await response.json();
     return result;
   } catch (error) {
@@ -112,20 +110,15 @@ export async function getReservations(token) {
 
 export async function deleteReservation(id, token) {
   try {
-    try {
-      const response = await fetch(`${baseUrl}/reservations/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      const result = await response.json();
-      return result;
-    } catch (error) {
-      console.error(error);
-    }
+    const response = await fetch(`${baseUrl}/reservations/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const result = await response.json();
+    return result;
   } catch (error) {
     console.error(error);
   }

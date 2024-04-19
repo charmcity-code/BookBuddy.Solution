@@ -35,9 +35,17 @@ const SingleBook = ({ token }) => {
   return (
     <>
       {book && (
-        <div key={book.id}>
+        <div
+          style={{
+            backgroundColor: "#ccc5b9",
+            margin: "10px",
+            padding: "15px",
+            borderRadius: "25px",
+          }}
+          key={book.id}
+        >
           <h2>{book.title}</h2>
-          <p>{book.author}</p>
+          <p>by: {book.author}</p>
           <p>{book.description}</p>
           <img
             style={{ height: "250px" }}
@@ -48,7 +56,9 @@ const SingleBook = ({ token }) => {
           {token ? (
             <button onClick={handleClick}>Checkout</button>
           ) : (
-            <p>Please Login or Register to checkout this book.</p>
+            <p style={{ color: "#D81E5B" }}>
+              Please <b>Login</b> or <b>Register</b> to checkout this book.
+            </p>
           )}
         </div>
       )}

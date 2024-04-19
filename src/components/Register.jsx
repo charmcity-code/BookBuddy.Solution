@@ -1,9 +1,14 @@
 /* TODO - add your code to create a functional React component that renders a registration form */
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { registerUser } from "../api";
 
 const Register = ({ setToken }) => {
+  const styles = { marginBottom: "10px" };
+
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -31,6 +36,7 @@ const Register = ({ setToken }) => {
         email: "",
         password: "",
       });
+      navigate("/account");
     } catch (error) {
       error.message;
     }
@@ -38,11 +44,21 @@ const Register = ({ setToken }) => {
 
   return (
     <>
-      <h1>Register</h1>
-      <form onSubmit={handleSubmit}>
+      <h2>Register</h2>
+      <form
+        onSubmit={handleSubmit}
+        style={{
+          display: "inline-block",
+          backgroundColor: "#ccc5b9",
+          margin: "10px",
+          padding: "30px",
+          borderRadius: "25px",
+        }}
+      >
         <label>
           First Name:{" "}
           <input
+            style={styles}
             type="text"
             name="firstName"
             value={formData.firstName}
@@ -53,6 +69,7 @@ const Register = ({ setToken }) => {
         <label>
           Last Name:{" "}
           <input
+            style={styles}
             type="text"
             name="lastName"
             value={formData.lastName}
@@ -63,6 +80,7 @@ const Register = ({ setToken }) => {
         <label>
           Email:{" "}
           <input
+            style={styles}
             type="email"
             name="email"
             value={formData.email}
@@ -73,6 +91,7 @@ const Register = ({ setToken }) => {
         <label>
           Password:{" "}
           <input
+            style={styles}
             type="password"
             name="password"
             value={formData.password}

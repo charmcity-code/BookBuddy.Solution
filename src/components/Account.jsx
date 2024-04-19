@@ -10,26 +10,26 @@ const Account = ({ token }) => {
   useEffect(() => {
     async function fetchAccount() {
       try {
-        const APIData = await fetchUser(token);
-        setAccount(APIData);
+        const APIResponse = await fetchUser(token);
+        setAccount(APIResponse);
       } catch (error) {
         console.error(error);
       }
     }
     fetchAccount();
   }, []);
+
   return (
     <>
-      <h1>Account</h1>
       {!account?.id && (
-        <h2 style={{ color: "#FF5555" }}>
+        <h2 style={{ color: "#D81E5B" }}>
           Please log in to view your account details.
         </h2>
       )}
       {account?.id && (
         <>
           <div>
-            <p>Welcome {account.email}!</p>
+            <h2>Welcome {account.email}!</h2>
             <p>First name: {account.firstname}</p>
             <p>Last name: {account.lastname}</p>
           </div>

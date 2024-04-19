@@ -44,14 +44,15 @@ const Books = () => {
           return (
             <div
               style={{
-                backgroundColor: "#D9DADE",
-                margin: "10px",
-                padding: "10px",
+                backgroundColor: "#ccc5b9",
+                margin: "12px 0px",
+                padding: "15px",
+                borderRadius: "25px",
               }}
               key={book.id}
             >
               <h3>{book.title}</h3>
-              <p>{book.author}</p>
+              <p>by: {book.author}</p>
               <p>{book.description}</p>
               <img
                 style={{ height: "250px" }}

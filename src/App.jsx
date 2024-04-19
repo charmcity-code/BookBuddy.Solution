@@ -13,23 +13,27 @@ import SingleBook from "./components/SingleBook";
 function App() {
   const [token, setToken] = useState(null);
   return (
-    <div style={{ padding: "10px" }}>
+    <>
       <Navigations token={token} />
-      <h1 style={{ color: "#BD93F9" }}>
-        <img id="logo-image" src={bookLogo} />
-        Library App
-      </h1>
-      <Routes>
-        <Route path="/" element={<Books />} />
-        <Route path="/books/:id" element={<SingleBook token={token} />} />
-        <Route path="/login" element={<Login setToken={setToken} />} />
-        <Route path="/logout" element={<Logout setToken={setToken} />} />
-        <Route path="/register" element={<Register setToken={setToken} />} />
-        <Route path="/account" element={<Account token={token} />} />
-        <Route path="/account" element={<Account token={token} />} />
-        <Route path="/reservations" element={<Reservations token={token} />} />
-      </Routes>
-    </div>
+      <div style={{ padding: "10px", maxWidth: "1280px", margin: "0 auto" }}>
+        <h1 style={{ color: "#403d39" }}>
+          <img id="logo-image" src={bookLogo} />
+          Library App
+        </h1>
+        <Routes>
+          <Route path="/" element={<Books />} />
+          <Route path="/books/:id" element={<SingleBook token={token} />} />
+          <Route path="/login" element={<Login setToken={setToken} />} />
+          <Route path="/logout" element={<Logout setToken={setToken} />} />
+          <Route path="/register" element={<Register setToken={setToken} />} />
+          <Route path="/account" element={<Account token={token} />} />
+          <Route
+            path="/reservations"
+            element={<Reservations token={token} />}
+          />
+        </Routes>
+      </div>
+    </>
   );
 }
 
