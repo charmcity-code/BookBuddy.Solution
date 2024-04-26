@@ -9,12 +9,8 @@ const Account = ({ token }) => {
 
   useEffect(() => {
     async function fetchAccount() {
-      try {
-        const APIResponse = await fetchUser(token);
-        setAccount(APIResponse);
-      } catch (error) {
-        console.error(error);
-      }
+      const APIResponse = await fetchUser(token);
+      setAccount(APIResponse);
     }
     fetchAccount();
   }, []);

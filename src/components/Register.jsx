@@ -22,24 +22,20 @@ const Register = ({ setToken }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const APIData = await registerUser(
-        formData.firstName,
-        formData.lastName,
-        formData.email,
-        formData.password
-      );
-      setToken(APIData.token);
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        password: "",
-      });
-      navigate("/account");
-    } catch (error) {
-      error.message;
-    }
+    const APIData = await registerUser(
+      formData.firstName,
+      formData.lastName,
+      formData.email,
+      formData.password
+    );
+    setToken(APIData.token);
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+    });
+    navigate("/account");
   };
 
   return (

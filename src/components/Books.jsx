@@ -12,12 +12,8 @@ const Books = () => {
 
   useEffect(() => {
     async function fetchBooks() {
-      try {
-        const APIResponse = await fetchAllBooks();
-        setBooks(APIResponse.books);
-      } catch (error) {
-        console.error(error);
-      }
+      const APIResponse = await fetchAllBooks();
+      setBooks(APIResponse.books);
     }
     fetchBooks();
   }, []);

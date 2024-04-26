@@ -11,23 +11,15 @@ const SingleBook = ({ token }) => {
 
   const handleClick = async () => {
     if (token) {
-      try {
-        await checkoutBook(id, token);
-        navigate("/account");
-      } catch (error) {
-        console.error(error);
-      }
+      await checkoutBook(id, token);
+      navigate("/account");
     }
   };
 
   useEffect(() => {
     async function fetchBook() {
-      try {
-        const APIResponse = await fetchSingleBook(id);
-        setBook(APIResponse.book);
-      } catch (error) {
-        console.error(error);
-      }
+      const APIResponse = await fetchSingleBook(id);
+      setBook(APIResponse.book);
     }
     fetchBook();
   }, []);

@@ -19,17 +19,13 @@ const Login = ({ setToken }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const APIData = await loginUser(formData.email, formData.password);
-      setToken(APIData.token);
-      setFormData({
-        email: "",
-        password: "",
-      });
-      navigate("/account");
-    } catch (error) {
-      error.message;
-    }
+    const APIData = await loginUser(formData.email, formData.password);
+    setToken(APIData.token);
+    setFormData({
+      email: "",
+      password: "",
+    });
+    navigate("/account");
   };
 
   return (

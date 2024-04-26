@@ -18,12 +18,8 @@ const Reservations = ({ token }) => {
 
   useEffect(() => {
     async function fetchReservations() {
-      try {
-        const APIResponse = await getReservations(token);
-        setReservations(APIResponse.reservation);
-      } catch (error) {
-        console.error(error);
-      }
+      const APIResponse = await getReservations(token);
+      setReservations(APIResponse.reservation);
     }
     fetchReservations();
   }, [refresh]);
