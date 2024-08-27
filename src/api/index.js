@@ -1,4 +1,4 @@
-const baseUrl = "https://unit3-bookbuddy-api.onrender.com/api";
+const baseUrl = "https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api";
 
 export async function fetchAllBooks() {
   try {
@@ -74,6 +74,7 @@ export async function fetchUser(token) {
     console.error(error);
   }
 }
+
 export async function checkoutBook(id, token) {
   try {
     const response = await fetch(`${baseUrl}/books/${id}`, {
