@@ -75,6 +75,7 @@ export async function fetchUser(token) {
   }
 }
 
+// changing the boolean to false checkouts the book
 export async function checkoutBook(id, token) {
   try {
     const response = await fetch(`${baseUrl}/books/${id}`, {
@@ -109,6 +110,8 @@ export async function getReservations(token) {
   }
 }
 
+// reservation is deleted and book is returned.
+// available is changed to boolean opposite on backend
 export async function deleteReservation(id, token) {
   try {
     const response = await fetch(`${baseUrl}/reservations/${id}`, {
