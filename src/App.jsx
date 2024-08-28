@@ -7,7 +7,6 @@ import Login from "./components/Login";
 import Logout from "./components/Logout";
 import Navigations from "./components/Navigations";
 import Register from "./components/Register";
-import Reservations from "./components/Reservations";
 import SingleBook from "./components/SingleBook";
 
 function App() {
@@ -27,10 +26,6 @@ function App() {
           <Route path="/logout" element={<Logout setToken={setToken} />} />
           <Route path="/register" element={<Register setToken={setToken} />} />
           <Route path="/account" element={<Account token={token} />} />
-          <Route
-            path="/reservations"
-            element={<Reservations token={token} />}
-          />
         </Routes>
       </div>
     </>
