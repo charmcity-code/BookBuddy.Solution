@@ -60,6 +60,8 @@ export async function loginUser(email, password) {
   }
 }
 
+// returns account details and an array of books user has checked out
+// books array includes reservation id and book title
 export async function fetchUser(token) {
   try {
     const response = await fetch(`${baseUrl}/users/me`, {
