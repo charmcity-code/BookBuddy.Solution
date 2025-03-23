@@ -60,8 +60,8 @@ export async function loginUser(email, password) {
   }
 }
 
-// returns account details and an array of books user has checked out
-// books array includes reservation id and book title
+// returns account details and an array of user's reservations
+// reservations array includes reservation id and book title
 export async function fetchUser(token) {
   try {
     const response = await fetch(`${baseUrl}/users/me`, {
@@ -77,20 +77,21 @@ export async function fetchUser(token) {
   }
 }
 
-// changing the boolean to false checkouts the book
 export async function checkoutBook(id, token) {
   try {
-    const response = await fetch(`${baseUrl}/books/${id}`, {
-      method: "PATCH",
+    const response = await fetch(`${baseUrl}/reservations`, {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
-        available: false,
+        bookId: id,
       }),
     });
     const result = await response.json();
+    console.log(result);
+
     return result;
   } catch (error) {
     console.error(error);
@@ -112,8 +113,7 @@ export async function getReservations(token) {
   }
 }
 
-// reservation is deleted and book is returned.
-// available is changed to boolean opposite on backend
+// reservation is deleted and book is returned and marked as available
 export async function deleteReservation(id, token) {
   try {
     const response = await fetch(`${baseUrl}/reservations/${id}`, {
@@ -123,8 +123,7 @@ export async function deleteReservation(id, token) {
         Authorization: `Bearer ${token}`,
       },
     });
-    const result = await response.json();
-    return result;
+    return response;
   } catch (error) {
     console.error(error);
   }

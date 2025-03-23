@@ -19,7 +19,7 @@ const SingleBook = ({ token }) => {
   useEffect(() => {
     async function fetchBook() {
       const APIResponse = await fetchSingleBook(id);
-      setBook(APIResponse.book);
+      setBook(APIResponse);
     }
     fetchBook();
   }, []);

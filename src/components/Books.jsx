@@ -13,7 +13,7 @@ const Books = () => {
   useEffect(() => {
     async function fetchBooks() {
       const APIResponse = await fetchAllBooks();
-      setBooks(APIResponse.books);
+      setBooks(APIResponse);
     }
     fetchBooks();
   }, []);

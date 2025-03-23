@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <Navigations token={token} />
-      <div style={{ padding: "10px", maxWidth: "1280px", margin: "0 auto" }}>
+      <div style={{ padding: "10px", maxWidth: "1280px", margin: "0 25px" }}>
         <h1 style={{ color: "#403d39" }}>
           <img id="logo-image" src={bookLogo} />
           Library App

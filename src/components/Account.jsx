@@ -7,6 +7,7 @@ import { deleteReservation } from "../api";
 const Account = ({ token }) => {
   const [account, setAccount] = useState(null);
   const [refresh, setRefresh] = useState(false);
+  console.log(account);
 
   useEffect(() => {
     async function fetchAccount() {
@@ -42,7 +43,7 @@ const Account = ({ token }) => {
             <p>Last name: {account.lastname}</p>
           </div>
 
-          {account?.books.length === 0 ? (
+          {account?.reservations.length === 0 ? (
             <h3 style={{ color: "#D81E5B" }}>No Books Checked Out</h3>
           ) : (
             <h3>Books Checked Out</h3>
@@ -50,8 +51,8 @@ const Account = ({ token }) => {
         </>
       )}
 
-      {account?.books &&
-        account.books.map((book) => {
+      {account?.reservations &&
+        account.reservations.map((reservation) => {
           return (
             <div
               style={{
@@ -61,16 +62,18 @@ const Account = ({ token }) => {
                 padding: "15px",
                 borderRadius: "25px",
               }}
-              key={book.id}
+              key={reservation.id}
             >
-              <h4>{book.title}</h4>
+              <h4>{reservation.title}</h4>
               <img
                 style={{ height: "250px" }}
-                src={book.coverimage}
-                alt={`${book.title} image`}
+                src={reservation.coverimage}
+                alt={`${reservation.title} image`}
               />
               <br />
-              <button onClick={() => handleClick(book.id)}>Return</button>
+              <button onClick={() => handleClick(reservation.id)}>
+                Return
+              </button>
             </div>
           );
         })}
