@@ -7,8 +7,12 @@ import { fetchAllBooks } from "../api";
 const Books = () => {
   const [books, setBooks] = useState([]);
   const [searchParam, setSearchParam] = useState("");
-
   const navigate = useNavigate();
+
+  const statusStyle = {
+    color: "white",
+    padding: "2px 6px",
+  };
 
   useEffect(() => {
     async function fetchBooks() {
@@ -48,8 +52,21 @@ const Books = () => {
               key={book.id}
             >
               <h3>{book.title}</h3>
+
               <p>by: {book.author}</p>
               <p>{book.description}</p>
+              <p>
+                <span
+                  style={{
+                    ...statusStyle,
+                    backgroundColor: book.available ? "#157145" : "#D81E5B",
+                  }}
+                >
+                  {book.available
+                    ? "Available"
+                    : "This book is currently checked out."}
+                </span>
+              </p>
               <img
                 style={{ height: "250px" }}
                 src={book.coverimage}

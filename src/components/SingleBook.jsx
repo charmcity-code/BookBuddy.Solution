@@ -9,10 +9,31 @@ const SingleBook = ({ token }) => {
   const navigate = useNavigate();
   const { id } = useParams();
 
+  const statusStyle = {
+    color: "white",
+    padding: "2px 6px",
+  };
+
   const handleClick = async () => {
     if (token) {
       await checkoutBook(id, token);
       navigate("/account");
+    }
+  };
+
+  const renderCheckoutSection = () => {
+    const isAvailable = book.available;
+
+    if (token) {
+      return isAvailable ? (
+        <button onClick={handleClick}>Checkout</button>
+      ) : null;
+    } else {
+      return isAvailable ? (
+        <p style={{ color: "#D81E5B" }}>
+          Please <b>Login</b> or <b>Register</b> to checkout this book.
+        </p>
+      ) : null;
     }
   };
 
@@ -39,19 +60,25 @@ const SingleBook = ({ token }) => {
           <h2>{book.title}</h2>
           <p>by: {book.author}</p>
           <p>{book.description}</p>
+          <p>
+            <span
+              style={{
+                ...statusStyle,
+                backgroundColor: book.available ? "#157145" : "#D81E5B",
+              }}
+            >
+              {book.available
+                ? "Available"
+                : "This book is currently checked out."}
+            </span>
+          </p>
           <img
             style={{ height: "250px" }}
             src={book.coverimage}
             alt={`${book.title} image`}
           />
           <br />
-          {token ? (
-            <button onClick={handleClick}>Checkout</button>
-          ) : (
-            <p style={{ color: "#D81E5B" }}>
-              Please <b>Login</b> or <b>Register</b> to checkout this book.
-            </p>
-          )}
+          {renderCheckoutSection()}
         </div>
       )}
     </>
