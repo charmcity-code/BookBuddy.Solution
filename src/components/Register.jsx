@@ -28,6 +28,7 @@ const Register = ({ setToken }) => {
       formData.email,
       formData.password
     );
+    localStorage.setItem("myToken", APIData.token);
     setToken(APIData.token);
     setFormData({
       firstName: "",

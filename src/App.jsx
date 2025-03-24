@@ -10,7 +10,7 @@ import Register from "./components/Register";
 import SingleBook from "./components/SingleBook";
 
 function App() {
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem("myToken"));
   return (
     <>
       <Navigations token={token} />

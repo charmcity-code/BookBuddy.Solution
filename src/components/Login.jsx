@@ -20,6 +20,7 @@ const Login = ({ setToken }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const APIData = await loginUser(formData.email, formData.password);
+    localStorage.setItem("myToken", APIData.token);
     setToken(APIData.token);
     setFormData({
       email: "",

@@ -5,6 +5,7 @@ const Logout = ({ setToken }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    localStorage.removeItem("myToken");
     setToken(null);
     navigate("/");
   }, []);
