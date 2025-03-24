@@ -66,7 +66,7 @@ const Account = ({ token }) => {
             >
               <h4>{reservation.title}</h4>
               <img
-                style={{ height: "250px" }}
+                style={{ height: "200px" }}
                 src={reservation.coverimage}
                 alt={`${reservation.title} image`}
               />

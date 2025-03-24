@@ -54,31 +54,47 @@ const SingleBook = ({ token }) => {
             margin: "10px",
             padding: "15px",
             borderRadius: "25px",
+            display: "flex",
           }}
           key={book.id}
         >
-          <h2>{book.title}</h2>
-          <p>by: {book.author}</p>
-          <p>{book.description}</p>
-          <p>
-            <span
-              style={{
-                ...statusStyle,
-                backgroundColor: book.available ? "#157145" : "#D81E5B",
-              }}
-            >
-              {book.available
-                ? "Available"
-                : "This book is currently checked out."}
-            </span>
-          </p>
-          <img
-            style={{ height: "250px" }}
-            src={book.coverimage}
-            alt={`${book.title} image`}
-          />
-          <br />
-          {renderCheckoutSection()}
+          <div
+            style={{
+              backgroundColor: "#ccc5b9",
+              margin: "12px 0px",
+              padding: "15px",
+              borderRadius: "25px",
+              display: "flex",
+            }}
+            key={book.id}
+          >
+            <div>
+              <img
+                style={{ height: "250px" }}
+                src={book.coverimage}
+                alt={`${book.title} image`}
+              />
+              <br />
+              {renderCheckoutSection()}
+            </div>
+            <div style={{ marginLeft: "20px" }}>
+              <h3>{book.title}</h3>
+              <p>by: {book.author}</p>
+              <p>{book.description}</p>
+              <p>
+                <span
+                  style={{
+                    ...statusStyle,
+                    backgroundColor: book.available ? "#157145" : "#D81E5B",
+                  }}
+                >
+                  {book.available
+                    ? "Available"
+                    : "This book is currently checked out."}
+                </span>
+              </p>
+            </div>
+          </div>
         </div>
       )}
     </>
