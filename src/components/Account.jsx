@@ -31,7 +31,7 @@ const Account = ({ token }) => {
   return (
     <>
       {!account?.id && (
-        <h2 style={{ color: "#D81E5B" }}>
+        <h2 style={{ color: "#97153f" }}>
           Please log in to view your account details.
         </h2>
       )}
@@ -44,7 +44,7 @@ const Account = ({ token }) => {
           </div>
 
           {account?.reservations.length === 0 ? (
-            <h3 style={{ color: "#D81E5B" }}>No Books Checked Out</h3>
+            <h3 style={{ color: "#97153f" }}>No Books Checked Out</h3>
           ) : (
             <h3>Books Checked Out</h3>
           )}
