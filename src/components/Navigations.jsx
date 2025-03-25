@@ -2,7 +2,31 @@
 
 import { Link } from "react-router-dom";
 
+const linkStyles = { textDecoration: "none", color: "#252422" };
+
 const Navigations = ({ token }) => {
+  const renderLoggedInLinks = () => (
+    <>
+      <Link style={{ ...linkStyles }} to="/account">
+        Account
+      </Link>
+      <Link style={{ ...linkStyles }} to="/logout">
+        Logout
+      </Link>
+    </>
+  );
+
+  const renderLoggedOutLinks = () => (
+    <>
+      <Link style={{ ...linkStyles }} to="/login">
+        Login
+      </Link>
+      <Link style={{ ...linkStyles }} to="/register">
+        Register
+      </Link>
+    </>
+  );
+
   return (
     <nav
       style={{
@@ -15,41 +39,10 @@ const Navigations = ({ token }) => {
         fontSize: "large",
       }}
     >
-      <Link style={{ textDecoration: "none", color: "#252422" }} to="/">
+      <Link style={{ ...linkStyles }} to="/">
         Home
       </Link>
-
-      {token ? (
-        <>
-          <Link
-            style={{ textDecoration: "none", color: "#252422" }}
-            to="/account"
-          >
-            Account
-          </Link>
-          <Link
-            style={{ textDecoration: "none", color: "#252422" }}
-            to="/logout"
-          >
-            Logout
-          </Link>
-        </>
-      ) : (
-        <>
-          <Link
-            style={{ textDecoration: "none", color: "#252422" }}
-            to="/login"
-          >
-            Login
-          </Link>
-          <Link
-            style={{ textDecoration: "none", color: "#252422" }}
-            to="/register"
-          >
-            Register
-          </Link>
-        </>
-      )}
+      {token ? renderLoggedInLinks() : renderLoggedOutLinks()}
     </nav>
   );
 };

@@ -30,7 +30,7 @@ const SingleBook = ({ token }) => {
       ) : null;
     } else {
       return isAvailable ? (
-        <p style={{ color: "#D81E5B" }}>
+        <p style={{ color: "#97153f" }}>
           Please <b>Login</b> or <b>Register</b> to checkout this book.
         </p>
       ) : null;
