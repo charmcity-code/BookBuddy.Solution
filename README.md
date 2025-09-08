@@ -10,8 +10,8 @@ A React front-end demo for managing a list of books.
 - Component structure and props
 
 ## Tech Stack
-- React (Vite or CRA, depending on setup)
-- JavaScript (ES6+)
+- React
+- JavaScript
 - HTML5
 - CSS3
 - Git/GitHub
