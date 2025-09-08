@@ -1,7 +1,24 @@
-# Book Buddy
+# BookBuddy (Solution)
 
-## Introduction
+A React front-end demo for managing a list of books.
 
-We are working with a new client who is wanting to design an online library for the public. Another team has already built out the API, but we need your assistance in developing the front end to ensure on-time delivery to the client. When this is complete, please submit the link to the deployed application so I can share it with the client.
+## Features
+- Add and remove books
+- Update book details
+- Render dynamic lists from state
+- Controlled form inputs
+- Component structure and props
 
-Details on the API can be found 🔗 [here](https://fsa-book-buddy-b6e748d1380d.herokuapp.com/docs/)
+## Tech Stack
+- React (Vite or CRA, depending on setup)
+- JavaScript (ES6+)
+- HTML5
+- CSS3
+- Git/GitHub
+
+## Getting Started
+```bash
+git clone https://github.com/charmcity-code/BookBuddy.Solution.git
+cd BookBuddy.Solution
+npm install
+npm run dev
